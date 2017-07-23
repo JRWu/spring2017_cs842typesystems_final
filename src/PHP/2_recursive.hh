@@ -15,10 +15,8 @@ function gcd($m, $n, $g){
 }
 
 function main(array<string> $argv){
-	echo "Fib: \n";
-	echo fib(40);
-	echo "\nGCD: \n";
-	echo gcd(1234, 84, 123);
+	fib(40);
+	gcd(1234, 84, 123);
 }
 
 main ($argv);

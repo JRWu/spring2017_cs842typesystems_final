@@ -28,9 +28,7 @@ class Duck extends Bird{
 
 
 function main(array<string> $argv){
-	echo "Duck";
 	$duck = new Duck('Donald', 42);
-	echo $duck->talk();
 }
 
 main ($argv);

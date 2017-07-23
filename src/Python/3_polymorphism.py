@@ -3,11 +3,11 @@ import three_polymorphism
 # Build list of objects
 # Call methods of objects
 
-Animal = three_polymorphism.Bird("Polly", 42)
-print Animal.talk()
+#Animal = three_polymorphism.Bird("Polly", 42)
+#print Animal.talk()
 
-Animal = three_polymorphism.Duck("Donald", 42)
-print Animal.talk()
+#Animal = three_polymorphism.Duck("Donald", 42)
+#print Animal.talk()
 
 objectList = []
 

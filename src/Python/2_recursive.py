@@ -1,3 +1,7 @@
 import two_recursive
-print two_recursive.fib(40)
-print two_recursive.gcd(1234, 84,123)
+
+for i in range(0, 10000):
+	two_recursive.fib(20)
+
+for i in range(0, 10000):
+	two_recursive.gcd(1234, 84,123)
