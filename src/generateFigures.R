@@ -1,7 +1,7 @@
 #!/usr/bin/Rscript
 
 # Path Setup
-languages <- c("Python", "PHP")
+languages <- c("Python", "PHP", "Javascript")
 test <- c("arithmetic", "strings","io","recursion")
 
 # Graphing Style

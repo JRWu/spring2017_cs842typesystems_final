@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Compile
-make
-
 # Benchmark the Typed Arithmetic File
 for i in {1..10}
 do

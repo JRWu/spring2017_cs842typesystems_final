@@ -42,7 +42,6 @@ function iterate($needle, $haystack){
 	return $n;
 }
 
-
 function main(array<string> $argv){
 
 	$needle = 0;
