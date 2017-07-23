@@ -14,5 +14,16 @@ RUN echo deb http://dl.hhvm.com/ubuntu trusty main | tee /etc/apt/sources.list.d
 RUN apt-get update
 RUN apt-get install -y hhvm
 
+# Node.js
+RUN apt-get install --yes curl
+RUN curl --silent --location https://deb.nodesource.com/setup_4.x | sudo bash -
+RUN apt-get install --yes nodejs
+RUN apt-get install --yes build-essential
+#RUN mkdir /src
+#RUN cd /src; npm install
+RUN npm install npm -g
+RUN npm install -g typescript
+
+
 
 VOLUME ["/testsuite", "/host"]

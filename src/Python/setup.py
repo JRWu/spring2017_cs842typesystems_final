@@ -3,10 +3,8 @@ from distutils.extension import Extension
 from Cython.Distutils import build_ext
 
 ext_modules=[
-	Extension("one_primitives", ["one_primitives.pyx"]),
-	Extension("two_recursive", ["two_recursive.pyx"]),
-	Extension("three_polymorphism", ["three_polymorphism.pyx"]),
-	Extension("four_datastructures", ["four_datastructures.pyx"])
+	Extension("functions", ["functions.pyx"]),
+
 ]
 
 setup(

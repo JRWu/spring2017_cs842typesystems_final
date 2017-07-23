@@ -4,4 +4,4 @@ clean:
 	rm -r build
 	rm *.c
 	rm *.so
-
+	rm *.pyc
