@@ -12,7 +12,7 @@ docker build .
 docker run --privileged -it -v PATH_TO_REPOSITORY/spring2017_cs842typesystems_final/src:/testsuite -v /:/host jwu424/cs842
 
 
-# To run the benchmarks, CD into /src/PHP or /src/Python or /src/Javascript and run the command
+# To run the benchmarks within the Docker container, CD into /testsuite/src/PHP or /src/Python or /testsuite/src/Javascript and run the command
 ./benchmark.sh
 
 
