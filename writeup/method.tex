@@ -3,16 +3,19 @@
 Benchmarks for the following experiments were executed in an Ubuntu Docker container running ontop of an Intel i7 4790k at 4.4GHz with 16GB RAM. Docker was selected as the execution environment as it provides a consistent runtime environment regardless of deployment \cite{Merkel:2014:DLL:2600239.2600241}. The builtin linux time functionality was chosen to measure the elapsed real time betwen invocation and termination of each benchmark. All relevant code can be found at: \url{https://github.com/JRWu/spring2017_cs842typesystems_final}. Additionally, the docker image containing the execution environment can be sourced by using \textit{docker pull jwu424/cs842}. 
 
 \subsection{Languages}
-Three dynamically typed languages and their gradually typed counterparts were chosen for the benchmark purposes: PHP/HACK, Python/Cython, Javascript/Typescript.
-
-Hack \cite{Adams:2014:HVM:2660193.2660199}
+Three dynamically typed languages and their gradually typed counterparts were chosen for the benchmark purposes: PHP/HACK, Python/Cython, Javascript/Typescript. Hack is a language developed by Adams et al. at Facebook to address the high CPU performance overhead incurred by native PHP running on an interpreter \cite{Adams:2014:HVM:2660193.2660199}. Cython is a Python extension which compiles annotated Python to C and subsequently links it for usage by the Python interpreter \cite{behnel2011cython}. It is gradually typed in the sense that type annotations are optional, and can be incrementally added to a program. TypeScript is an unsound extension of JavaScript, but it adds an additional layer of security in the form of a static type system \cite{bierman2014understanding}. The docker container uses Cython version 0.26, Python 2.7.6, HHVM version 3.18.3, PHP version 5.6.99, and npm version 5.3.0 to run JavaScript EMCAScript 5 (ES5) along with TypeScript compiled to ES5.
 
 \subsection{Benchmarks}
+All three languages have the same test suite of benchmarks implemented. Both Cython and TypeScript were compiled prior to execution, while Hack was executed with the HHVM which includes JIT compilation. Functions were called an arbitrary amount of times such as 1000000 or 10000 but remain consistent between the typed and untyped calls. The reason for this iterative function calling process was to generate numbers large enough for the linux time functionality to detect. Parameters passed to the functions are identical between typed and untyped calls with the only difference being the typehints added to typed calls. Runtime is averaged between 10 calls to the file containing the tests, and was measured using the builtin linux \textit{time} function. All tests were run within the docker container to exclude the time necessary to initiate the container. 
+
 \subsubsection{Arithmetic}
-A set of arithmetic operations were implemented as functions.  
+A set of arithmetic operations were implemented as functions. These operations are comprised of the functions addition, subtraction, multiplication, division and iteration. For each of the untyped function variants, arguments are passed into the function untyped, and a loop is applied to apply the primitive operation to each type 10 times.
 
 \subsubsection{Strings}
+Two functions are implemented in this test set, a string concatenation function and the levenshtein edit distance function. The levenshtein function computes the minimal number of deletions, insertions or substitutions required to transform a source string \textit{s} to a target string \textit{t}.
 
 \subsubsection{IO}
+A simple file opening function which opens a file, reads all the lines, and assigns them to a variable before closing the file.
 
 \subsubsection{Recursion}
+Three recursive functions: fibonnaci, greatest common divisor (gcd), and recursive addition were written for this test set. Fibonacci computes the sum of the fibonnaci sequence up to a given number passed as a parameter. GCD computes the greatest common divisor between two numbers passed in as parameters. Recursive addition adds two numbers recursively and makes n recursive calls where n is one of the parameters. Fibonnaci makes two calls to itself within its function body while gcd and recursive additions make one. 
