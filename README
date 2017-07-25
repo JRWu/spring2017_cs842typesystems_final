@@ -1,0 +1,21 @@
+# Assuming docker is installed, the image can be sourced with:
+docker pull jwu424/cs842
+
+
+# The repository "spring2017_cs842typesystems_final" should be forked
+# From the directory, the image can be built with
+docker build .
+
+
+# PATH_TO_REPOSITORY refers to the path on the host machine which leads to the forked repository
+# To run the docker container with proper volumes mounted:
+docker run --privileged -it -v PATH_TO_REPOSITORY/spring2017_cs842typesystems_final/src:/testsuite -v /:/host jwu424/cs842
+
+
+# To run the benchmarks, CD into /src/PHP or /src/Python or /src/Javascript and run the command
+./benchmark.sh
+
+
+# This step should be run in the /src directory
+# To generate the figures and tables assuming R is installed:
+Rscript --vanilla generateFigures.R
